@@ -73,6 +73,78 @@ body {
     margin: 0 10px 0 10px;
 } 
 
+.btn-primary {
+    display: inline-block;
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.btn-primary:hover {
+    background-color: #218838;
+}
+
+.btn-secondary {
+    display: inline-block;
+    background-color: #17a2b8;
+    color: white;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+
+.btn-secondary:hover {
+    background-color: #138496;
+}
+
+.btn-danger {
+    display: inline-block;
+    background-color: #dc3545;
+    color: white;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* Table */
+.tbl-full {
+    width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.tbl-full th, .tbl-full td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.tbl-full th {
+    background-color: #3498db;
+    color: white;
+}
+
+.tbl-full tr:hover {
+    background-color: #f1f1f1;
+}
+
+.tbl-full td {
+    color: #333;
+}
+
+
 /* Footer */
 .footer {
     background-color: #333;
