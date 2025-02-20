@@ -1,8 +1,8 @@
 <?php include('partials/menu.php') ?>
         <div class="main">
-            Manage Admin
+            <h1>Manage Admin</h1>
             <br/>
-            <a href="#" class="btn-primary">add admin</a>
+            <a href="add-admin.php" class="btn-primary">add admin</a>
             <table class="tbl-full">
                 <tr>
                     <th>S.N.</th>

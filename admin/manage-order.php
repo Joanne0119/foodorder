@@ -1,6 +1,6 @@
 <?php include('partials/menu.php') ?>
     <div class="main">
-        Manage Order
+        <h1>Manage Order</h1>
         <br/>
         <br/><br/><br/>
         <table class="tbl-full">

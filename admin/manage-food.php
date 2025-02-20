@@ -1,6 +1,6 @@
 <?php include('partials/menu.php') ?>
     <div class="main">
-        Manage Food
+        <h1>Manage Food</h1>
         <br/>
         <a href="#" class="btn-primary">add food</a>
         <table class="tbl-full">
