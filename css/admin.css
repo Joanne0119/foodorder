@@ -75,7 +75,7 @@ body {
 
 .btn-primary {
     display: inline-block;
-    background-color: #28a745;
+    background-color: #2273ce;
     color: white;
     padding: 10px 15px;
     text-decoration: none;
@@ -84,7 +84,8 @@ body {
 }
 
 .btn-primary:hover {
-    background-color: #218838;
+    background-color: #1c5ba4;
+    cursor: pointer;
 }
 
 .btn-secondary {
@@ -99,6 +100,7 @@ body {
 
 .btn-secondary:hover {
     background-color: #138496;
+    cursor: pointer;
 }
 
 .btn-danger {
@@ -112,6 +114,23 @@ body {
 
 .btn-danger:hover {
     background-color: #c82333;
+    cursor: pointer;
+}
+
+.success {
+    color: white;
+    background-color: green;
+    border-radius: 5px;
+    padding: 5px 8px;
+    display: inline;
+}
+
+.fail {
+    color: white;
+    background-color: red;
+    border-radius: 5px;
+    padding: 10px 15px;
+    display: inline;
 }
 
 /* Table */

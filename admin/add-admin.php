@@ -47,23 +47,25 @@
         // 獲取資料庫連線
         $conn = getDbConnection();
 
-        // SQL Qury to saved data into database
-        $sql = "INSERT INTO tbl_admin (full_name, username, password) VALUES (?, ?, ?)";
+        // 1. SQL Qury to saved data into database
+        $sql = "INSERT INTO tbl_admin (full_name, username, password) VALUES (?, ?, ?)"; //將要塞入的資料以?代替
+        // 2.
         $stmt = $conn->prepare($sql);
 
-        // 綁定參數
-        $stmt->bind_param("sss", $full_name, $username, $hashed_password);
+        // 3.綁定參數
+        $stmt->bind_param("sss", $full_name, $username, $hashed_password);//塞入資料，第一個參數：表示要用什麼形態來看待（sss表示後面三個都是string）
 
-        // 執行預備語句
-        $res = $stmt->execute();
+        // 4.執行預備語句
+        $res = $stmt->execute();//執行
 
         if ($res) {
             // echo "Success";
-            $_SESSION['add'] = "Admin Added Successfully";
+            $_SESSION['add'] = '<div class="success">Admin Added Successfully</div>';
             header('location:'.SETURL.'admin/manage-admin.php'); // Redirect to a page
+            exit;
         } else {
             // echo "Error: " . mysqli_error($conn);
-            $_SESSION['add'] = "Failed to Add Admin";
+            $_SESSION['add'] = '<div class="fail">Failed to Add Admin</div>';
             header('location:'.SETURL.'admin/add-admin.php'); 
         }
 
