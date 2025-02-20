@@ -2,6 +2,15 @@
         <div class="main">
             <h1>Manage Admin</h1>
             <br/>
+
+            <?php
+                if(isset($_SESSION['add']))
+                {
+                    echo $_SESSION['add']; // Display session message
+                    unset($_SESSION['add']); // Remove session message
+                }
+            ?>
+            </br>
             <a href="add-admin.php" class="btn-primary">add admin</a>
             <table class="tbl-full">
                 <tr>
@@ -10,33 +19,39 @@
                     <th>Username</th>
                     <th>Actions</th>
                 </tr>
-                <tr>
-                    <td>1.</td>
-                    <td>Joanne Liu</td>
-                    <td>Joeee</td>
-                    <td>
-                        <a herf="#" class="btn-secondary">Update Admin</a>
-                        <a herf="#" class="btn-danger">Delete Admin</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2.</td>
-                    <td>Nancy Lee</td>
-                    <td>Nana</td>
-                    <td>
-                        <a herf="#" class="btn-secondary">Update Admin</a>
-                        <a herf="#" class="btn-danger">Delete Admin</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3.</td>
-                    <td>Peter Pan</td>
-                    <td>Baby</td>
-                    <td>
-                        <a herf="#" class="btn-secondary">Update Admin</a>
-                        <a herf="#" class="btn-danger">Delete Admin</a>
-                    </td>
-                </tr>
+
+                <?php
+                    $conn = getDbConnection();
+
+                    if ($conn->connect_error) {
+                        die("Connection failed: " . $conn->connect_error);
+                    }
+
+                    $sql = "SELECT * FROM tbl_admin"; //get the data
+                    $result = $conn->query($sql);
+
+                    $sn = 1;
+
+                    if ($result->num_rows > 0) {  
+                        while($row = $result->fetch_assoc()) { //run through the result data, and print it out
+                        ?>
+                         <tr>
+                            <td><?= $sn++; ?></td>
+                            <td><?= $row["full_name"]; ?></td>
+                            <td><?= $row["username"]; ?></td>
+                            <td>
+                                <a herf="#" class="btn-secondary">Update Admin</a>
+                                <a herf="#" class="btn-danger">Delete Admin</a>
+                            </td>
+                        </tr>
+
+                        <?php
+                        }
+                    } else {
+                        echo "No Data";
+                    }
+                    
+                ?>
             </table>
 
         </div>

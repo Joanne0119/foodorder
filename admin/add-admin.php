@@ -2,6 +2,15 @@
 
 <div class="main">
     <h1>Add Admin</h1>
+    </br>
+    <?php
+        if(isset($_SESSION['add']))
+        {
+            echo $_SESSION['add']; // Display session message
+            unset($_SESSION['add']); // Remove session message
+        }
+    ?>
+    </br>
     <form action="" method="POST">
         <table>
             <tr>
@@ -49,9 +58,13 @@
         $res = $stmt->execute();
 
         if ($res) {
-            echo "Success";
+            // echo "Success";
+            $_SESSION['add'] = "Admin Added Successfully";
+            header('location:'.SETURL.'admin/manage-admin.php'); // Redirect to a page
         } else {
-            echo "Error: " . mysqli_error($conn);
+            // echo "Error: " . mysqli_error($conn);
+            $_SESSION['add'] = "Failed to Add Admin";
+            header('location:'.SETURL.'admin/add-admin.php'); 
         }
 
         // 關閉預備語句和資料庫連線

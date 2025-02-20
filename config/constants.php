@@ -1,4 +1,8 @@
 <?php
+    // Session Start
+    session_start();
+    
+    define('SETURL', 'http://localhost/foodorder/');
     define('LOCALHOST', 'localhost');
     define('DB_USERNAME', 'root');
     define('DB_PASSWORD', '2021athome');
