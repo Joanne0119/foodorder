@@ -19,6 +19,21 @@
                     echo $_SESSION['update']; // Display session message
                     unset($_SESSION['update']); // Remove session message
                 }
+                if(isset($_SESSION['update-password']))
+                {
+                    echo $_SESSION['update-password']; // Display session message
+                    unset($_SESSION['update-password']); // Remove session message
+                }
+                if(isset($_SESSION['user-not-found']))
+                {
+                    echo $_SESSION['user-not-found']; // Display session message
+                    unset($_SESSION['user-not-found']); // Remove session message
+                }
+                if(isset($_SESSION['password-not-match']))
+                {
+                    echo $_SESSION['password-not-match']; // Display session message
+                    unset($_SESSION['password-not-match']); // Remove session message
+                }
             ?>
             </br>
             <a href="add-admin.php" class="btn-primary">add admin</a>
@@ -50,6 +65,7 @@
                             <td><?= $row["full_name"]; ?></td>
                             <td><?= $row["username"]; ?></td>
                             <td>
+                                <a href="<?php echo SETURL; ?>admin/update-password.php?id=<?php echo $row["id"]; ?>" class="btn-primary">Change Password</a>
                                 <a href="<?php echo SETURL; ?>admin/update-admin.php?id=<?php echo $row["id"]; ?>" class="btn-secondary">Update Admin</a>
                                 <a href="<?php echo SETURL; ?>admin/delete-admin.php?id=<?php echo $row["id"]; ?>" class="btn-danger">Delete Admin</a>
                             </td>
