@@ -2,7 +2,7 @@
     <div class="main">
         <h1>Manage Category</h1>
         <br/>
-        <a href="#" class="btn-primary">add category</a>
+        <a href="<?php echo SETURL; ?>admin/add-category.php" class="btn-primary">add category</a>
         <table class="tbl-full">
             <tr>
                 <th>S.N.</th>
