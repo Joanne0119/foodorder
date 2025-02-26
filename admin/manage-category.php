@@ -2,6 +2,14 @@
     <div class="main">
         <h1>Manage Category</h1>
         <br/>
+        <?php
+            if(isset($_SESSION['add']))
+            {
+                echo $_SESSION['add']; // Display session message
+                unset($_SESSION['add']); // Remove session message
+            }
+        ?>
+        <br/>
         <a href="<?php echo SETURL; ?>admin/add-category.php" class="btn-primary">add category</a>
         <table class="tbl-full">
             <tr>
