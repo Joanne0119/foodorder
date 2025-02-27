@@ -59,35 +59,38 @@
             if(isset($_FILES['image']['name'])){
                 $image_name = $_FILES['image']['name'];
 
-                //Auto rename image
-                $ext = end(explode('.', $image_name)); // ex: food1.png
-                $image_name = "Food_Category_".rand(000, 999).'.'.$ext; // ex: Food_Category_123.png
+                if($image_name!=""){
 
-                $source_path = $_FILES['image']['tmp_name'];
-                $destination_path = "../image/category/".$image_name;
+                    //Auto rename image
+                    $ext = end(explode('.', $image_name)); // ex: food1.png
+                    $image_name = "Food_Category_".rand(000, 999).'.'.$ext; // ex: Food_Category_123.png
 
-                //check file type
-                $allowed_extensions = array('jpg', 'jpeg', 'png', 'gif');
-                $extension = pathinfo($image_name, PATHINFO_EXTENSION);
-                if (!in_array($extension, $allowed_extensions)) {
-                    $_SESSION['upload'] = '<div class="fail">Only image files are allowed</div>';
-                    header('location:' . SETURL . 'admin/add-category.php');
-                    die();
-                }
+                    $source_path = $_FILES['image']['tmp_name'];
+                    $destination_path = "../image/category/".$image_name;
 
-                // 檢查目錄是否存在
-                if (!is_dir("../image/category/")) {
-                    mkdir("../image/category/", 0755, true);
-                }
-                
-                // Upload the image
-                $upload = move_uploaded_file($source_path, $destination_path);
+                    //check file type
+                    $allowed_extensions = array('jpg', 'jpeg', 'png', 'gif');
+                    $extension = pathinfo($image_name, PATHINFO_EXTENSION);
+                    if (!in_array($extension, $allowed_extensions)) {
+                        $_SESSION['upload'] = '<div class="fail">Only image files are allowed</div>';
+                        header('location:' . SETURL . 'admin/add-category.php');
+                        die();
+                    }
 
-                //Check whether the image is uploaded or not
-                if($upload==false){
-                    $_SESSION['upload'] = '<div class="fail">Failed to Upload Image</div>';
-                    header('location:'.SETURL.'admin/add-category.php'); // Redirect to a page
-                    die();
+                    // 檢查目錄是否存在
+                    if (!is_dir("../image/category/")) {
+                        mkdir("../image/category/", 0755, true);
+                    }
+                    
+                    // Upload the image
+                    $upload = move_uploaded_file($source_path, $destination_path);
+
+                    //Check whether the image is uploaded or not
+                    if($upload==false){
+                        $_SESSION['upload'] = '<div class="fail">Failed to Upload Image</div>';
+                        header('location:'.SETURL.'admin/add-category.php'); // Redirect to a page
+                        die();
+                    }
                 }
             } else{
                 //Don't upload and set image name = blank
