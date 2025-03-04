@@ -13,6 +13,31 @@
                 echo $_SESSION['upload']; // Display session message
                 unset($_SESSION['upload']); // Remove session message
             }
+            if(isset($_SESSION['update']))
+            {
+                echo $_SESSION['update']; // Display session message
+                unset($_SESSION['update']); // Remove session message
+            }
+            if(isset($_SESSION['remove']))
+            {
+                echo $_SESSION['remove']; // Display session message
+                unset($_SESSION['remove']); // Remove session message
+            }
+            if(isset($_SESSION['delete']))
+            {
+                echo $_SESSION['delete']; // Display session message
+                unset($_SESSION['delete']); // Remove session message
+            }
+            if(isset($_SESSION['no-food-found']))
+            {
+                echo $_SESSION['no-food-found']; // Display session message
+                unset($_SESSION['no-food-found']); // Remove session message
+            }
+            if(isset($_SESSION['unauthorize']))
+            {
+                echo $_SESSION['unauthorize']; // Display session message
+                unset($_SESSION['unauthorize']); // Remove session message
+            }
         ?>
         <br/>
         <a href="<?php echo SETURL; ?>admin/add-food.php" class="btn-primary">add food</a>
@@ -62,8 +87,8 @@
                         <td><?= $row["feature"]; ?></td>
                         <td><?= $row["active"]; ?></td>
                         <td>
-                            <a href="<?php echo SETURL; ?>admin/update-category.php?id=<?php echo $row["id"]; ?>" class="btn-secondary">Update Food</a>
-                            <a href="<?php echo SETURL; ?>admin/delete-category.php?id=<?php echo $row["id"]; ?>&image_name=<?php echo $row["image_name"]; ?>" class="btn-danger">Delete Food</a>
+                            <a href="<?php echo SETURL; ?>admin/update-food.php?id=<?php echo $row["id"]; ?>" class="btn-secondary">Update Food</a>
+                            <a href="<?php echo SETURL; ?>admin/delete-food.php?id=<?php echo $row["id"]; ?>&image_name=<?php echo $row["image_name"]; ?>" class="btn-danger">Delete Food</a>
                         </td>
                     </tr>
 

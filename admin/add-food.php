@@ -158,7 +158,7 @@
             //2.
             $stmt = $conn->prepare($sql);
             //3.
-            $stmt->bind_param("ssisiss", $title, $description, $price, $image_name, $category_id, $feature, $active);
+            $stmt->bind_param("ssdsiss", $title, $description, $price, $image_name, $category_id, $feature, $active);
             //4.
             if($stmt->execute()){
                 $_SESSION['add'] = '<div class="success">Food Added Successfully</div>';
