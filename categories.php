@@ -29,7 +29,7 @@ https://github.com/vijaythapa333/web-design-course-restaurant?tab=readme-ov-file
                             echo "<div class='fail'>Image Not Available</div>";
                         }     
                         else{
-                            echo '<a href="category-foods.html">
+                            echo '<a href="'.SETURL.'categories-food.php?category_id='.$id.'&category_title='.$title.'">
                             <div class="box-3 float-container">
                                 <img src="image/category/'.$image_name.'" alt="'.$title.'" class="img-responsive img-curve">
                                 <h3 class="float-text text-white">'.$title.'</h3>    
