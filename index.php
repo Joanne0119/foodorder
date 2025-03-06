@@ -21,29 +21,44 @@ https://github.com/vijaythapa333/web-design-course-restaurant?tab=readme-ov-file
         <div class="container">
             <h2 class="text-center">Explore Foods</h2>
 
-            <a href="category-foods.html">
-            <div class="box-3 float-container">
-                <img src="image/pizza.jpg" alt="Pizza" class="img-responsive img-curve">
+            <?php
 
-                <h3 class="float-text text-white">Pizza</h3>
-            </div>
-            </a>
+                $conn = getDbConnection();
 
-            <a href="#">
-            <div class="box-3 float-container">
-                <img src="image/burger.jpg" alt="Burger" class="img-responsive img-curve">
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
 
-                <h3 class="float-text text-white">Burger</h3>
-            </div>
-            </a>
+                $sql = "SELECT * FROM tbl_category 
+                        WHERE active = 'Yes' AND feature = 'Yes'
+                        LIMIT 3"; //get the data
+                $result = $conn->query($sql);
 
-            <a href="#">
-            <div class="box-3 float-container">
-                <img src="image/momo.jpg" alt="Momo" class="img-responsive img-curve">
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+                        $id = $row['id'];
+                        $title = $row['title'];
+                        $image_name = $row['image_name'];
 
-                <h3 class="float-text text-white">Momo</h3>
-            </div>
-            </a>
+                        if ($image_name == "") {
+                            $image_name = "No-Image.png";
+                            echo "<div class='fail'>Image Not Available</div>";
+                        }     
+                        else{
+                            echo '<a href="category-foods.html">
+                            <div class="box-3 float-container">
+                                <img src="image/category/'.$image_name.'" alt="'.$title.'" class="img-responsive img-curve">
+                                <h3 class="float-text text-white">'.$title.'</h3>
+                            </div>
+                            </a>';
+                        }
+                    }
+                }
+                else {
+                    echo "<div class='fail'> No Category Added</div>";
+                }
+
+            ?>
 
             <div class="clearfix"></div>
         </div>
