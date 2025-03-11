@@ -19,6 +19,12 @@ https://github.com/vijaythapa333/web-design-course-restaurant?tab=readme-ov-file
     <!-- CAtegories Section Starts Here -->
     <section class="categories">
         <div class="container">
+            <?php
+                if(isset($_SESSION['order'])){
+                    echo $_SESSION['order'];
+                    unset($_SESSION['order']);
+                }
+            ?>
             <h2 class="text-center">Explore Foods</h2>
 
             <?php
@@ -102,7 +108,7 @@ https://github.com/vijaythapa333/web-design-course-restaurant?tab=readme-ov-file
                                         </p>
                                         <br>                                    
 
-                                        <a href="order.html" class="btn btn-primary">Order Now</a>
+                                        <a href=" '.SETURL.'order.php?food_id='.$id.'" class="btn btn-primary">Order Now</a>
                                     </div>
                                 </div>';
                         }

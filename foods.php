@@ -53,7 +53,7 @@ https://github.com/vijaythapa333/web-design-course-restaurant?tab=readme-ov-file
                                     </p>
                                     <br>
 
-                                    <a href='#' class='btn btn-primary'>Order Now</a>
+                                    <a href='".SETURL."order.php?food_id=".$id."' class='btn btn-primary'>Order Now</a>
                                 </div>
                             </div>";
                         }
